@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.mylink{
+    display: flex;
+    background-color:antiquewhite;
+    align-items: center;
+    justify-content: center;
+}

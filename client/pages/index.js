@@ -1,21 +1,28 @@
 import React, {useEffect, useState} from 'react'
+import Link from 'next/link';
+import CreateForm from "./CreateForm"
+
 
 function index() {
-  const [message, setMessage] = useState("Loading...");
-  const [items, setItem] = useState({})
+  const [message, setMessage] = useState("Loading..."); 
   useEffect(() => {
-    fetch("http://localhost:8080/api/home")
-      .then((response) => response.json())
+    fetch("http://localhost:8080/home/form-test")
+      .then((response) => response.json())  
       .then((data) => {
-        console.log(data.dict)
-        setMessage(data.message)
-        setItem(data.dict)
+        setMessage(data.message);
       })
   }, []);
   return (
   <div>
     <div>
       {message}
+      
+    </div>
+    <div>
+      <h1 className='mylink'>
+        <Link href="/posts/first-post">Click!</Link>
+      </h1>
+      <CreateForm/>
     </div>
 
   </div>

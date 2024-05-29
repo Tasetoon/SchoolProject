@@ -15,21 +15,35 @@ CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/postgres'
 db = SQLAlchemy(app)
 
-class Formule(db.Model):
-    __tablename__ = 'formules'
+class LiquidDensityConstant(db.Model):
+    __tablename__ = 'LiquidDensityConstants'
     id = db.Column(db.Integer,primary_key=True)
-    main_component = db.Column(db.CHAR)
-    term = db.Column(JSON)
+    name = db.Column(db.Text)
+    value = db.Column(db.Integer)
 
-@app.route("/api/home", methods = ['GET'])
+@app.route("/home", methods = ['GET'])
 def home_page():
-    cur = db.session.query(Formule).filter(Formule.id==1)
-    for i in cur:
-        res = i.main_component
-        trm = i.term
     return jsonify({
-        'main_component': res,
-        'json': trm
+        'message': "home page"
+    })
+    
+
+@app.route("/home/test", methods = ['GET'])
+def page():
+    cur = db.session.query(LiquidDensityConstant).filter(LiquidDensityConstant.id==1)
+    for i in cur:
+        name = i.name
+        value = i.value
+    print(name, value)
+    return jsonify({
+        'name': name,
+        'value': value
+    })
+
+@app.route("/home/form-test", methods = ['GET'])
+def formtest_page():
+     return jsonify({
+        'message': "form-test page"
     })
 
 if __name__ == "__main__":
