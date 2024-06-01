@@ -13,14 +13,22 @@ const router = useRouter()
         e.preventDefault()
         setIsLoading(true)
 
-        const ticket = {
-            object, object2
-        }
- 
-        const res = await fetch('http://localhost:3000/home/form-test', {
+        console.log(JSON.stringify(
+            {
+                'val1' : object,
+                'val2' : object2
+            }
+        ))
+        const res = await fetch('http://localhost:8080/home/form-test', {
             method: 'POST',
+            //mode: 'no-cors',
             headers: {"Content-type": "application/json"},
-            body: JSON.stringify(ticket)
+            body:
+            JSON.stringify({
+                    'val1' : object,
+                    'val2' : object2
+                })
+
         })
 
         if(res.status === 201){
@@ -33,8 +41,9 @@ const router = useRouter()
             <label>
                 <span>Parametr1:</span>
                 <input
+                    name = 'value1'
                     required
-                    type="text"
+                    type="number"
                     onChange={(e) => setObject(e.target.value)}
                     value = {object}
                 />
@@ -42,10 +51,11 @@ const router = useRouter()
             <label>
             <span>Parametr2:</span>
                 <input
+                    name = 'value2'
                     required
-                    type="text"
+                    type="number"
                     onChange={(e) => setObject2(e.target.value)}
-                    value = {object2}
+                    value = {object2}  
                 />
             </label>
             <button
@@ -53,8 +63,8 @@ const router = useRouter()
                 disabled = {isLoading}
 
             >
-                {isLoading && <span>Adding...</span>}
-                {!isLoading && <span>Add Ticket</span>}
+                {isLoading && <span>Sending...</span>}
+                {!isLoading && <span>SEND</span>}
             </button>
         </form>
     )
