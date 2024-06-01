@@ -45,10 +45,10 @@ def page():
 
 @app.route("/home/form-test", methods = ['POST'])
 def formtest_page():
-    print(request.get_json().get('val1'))
     value1 = int(request.get_json().get('val1'))
     value2 = int(request.get_json().get('val2'))
-    print(value1, value2)
+    print('Value 1 = ',value1)
+    print('Value 2 = ',value2)
     
     if value1 and value2:
         response = jsonify(
@@ -66,11 +66,6 @@ def formtest_page():
             }
         )
         return response
-
-# @app.route("/middleware_test", methods = ['GET'])
-# def test():
-#     value = 'Test'
-#     return f'value = {value}'
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
