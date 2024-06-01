@@ -1,30 +1,18 @@
 import React, {useEffect, useState} from 'react'
-import Link from 'next/link';
 import CreateForm from "./CreateForm"
+import Navbar from './Navbar';
 
 
 function index() {
-  const [message, setMessage] = useState("Loading..."); 
-  useEffect(() => {
-    fetch("http://localhost:8080/home")
-      .then((response) => response.json())  
-      .then((data) => {
-        setMessage(data.message);
-      })
-  }, []);
   return (
-  <div>
+  
+  <div className='min-h-screen bg-gray-200 dark:bg-slate-700'>
     <div>
-      {message}
-      
+      <Navbar/>
     </div>
-    <div>
-      <h1 className='mylink'>
-        <Link href="/posts/first-post">Click!</Link>
-      </h1>
+    <div className='mt-4'>
       <CreateForm/>
     </div>
-
   </div>
   )
 }
