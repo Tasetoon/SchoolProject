@@ -43,7 +43,7 @@ def page():
         'value': value
     })
 
-@app.route("/home/form-test", methods = ['GET'])
+@app.route("/home/form", methods = ['GET'])
 def formtest_page():
     isPut = False
     if request.method == 'POST':
