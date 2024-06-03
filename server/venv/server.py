@@ -43,29 +43,45 @@ def page():
         'value': value
     })
 
-@app.route("/home/form-test", methods = ['POST'])
+@app.route("/home/form", methods = ['GET'])
 def formtest_page():
-    value1 = int(request.get_json().get('val1'))
-    value2 = int(request.get_json().get('val2'))
-    print('Value 1 = ',value1)
-    print('Value 2 = ',value2)
-    
-    if value1 and value2:
-        response = jsonify(
-            {
-            'value1': value1,
-            'value2': value2,
-            'sum = ': value1+value2
-            }
-        )
-        return response
+    isPut = False
+    if request.method == 'POST':
+        value1 = int(request.get_json().get('val1'))
+        value2 = int(request.get_json().get('val2'))
+        print('Value 1 = ',value1)
+        print('Value 2 = ',value2)
+        
+        if value1 and value2:
+            isPut = True
+            response = jsonify(
+                {
+                'value1': value1,
+                'value2': value2,
+                'sum = ': value1+value2
+                }
+            )
+            return response
+        else:
+            response = jsonify(
+                {
+                'Message': 'Failed'
+                }
+            )
+            return response
     else:
-        response = jsonify(
-            {
-            'Message': 'Failed'
-            }
-        )
-        return response
+        value1 = request.args.get('val1')
+        value2 = request.args.get('val2')
+        if value1 and value2:
+
+            print('multiplication = ', int(value1)*int(value2))
+            return jsonify({
+                'multiplication': int(value1)*int(value2)
+            })
+        else:
+            return jsonify({
+                'Message': 'No Data'
+            })
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)

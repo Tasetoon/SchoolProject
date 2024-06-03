@@ -18,9 +18,7 @@ const router = useRouter()
     }, [object, object2]);
 
     async function fetchData() {
-        console.log(object, object2)
-        console.log(`http://localhost:8080/home/form-test?val1=${object}&val2=${object2}`)
-        fetch(`http://localhost:8080/home/form-test?val1=${object}&val2=${object2}`)
+        fetch(`http://localhost:8080/home/form?val1=${object}&val2=${object2}`)
               .then((response) => response.json())  
               .then((data) => {
                 setAnswer(data.multiplication);
