@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../components/Navbar';
-import CreateForm from '../components/Form';
+import Form from '../components/Form';
 
 
 function index() {
@@ -11,7 +11,12 @@ function index() {
       <Navbar/>
     </div>
     <div className='mt-4'>
-        <CreateForm/>
+        <Form
+          props={{
+            'p1': 'P',
+            'p2': 'V'
+          }}
+        />
     </div>
   </div>
   )

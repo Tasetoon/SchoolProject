@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
-
+from functions import Archimedes1, Archimedes2, Archimedes3
 
 # app instance
 db = SQLAlchemy()
@@ -45,43 +45,52 @@ def page():
 
 @app.route("/home/form", methods = ['GET'])
 def formtest_page():
-    isPut = False
-    if request.method == 'POST':
-        value1 = int(request.get_json().get('val1'))
-        value2 = int(request.get_json().get('val2'))
-        print('Value 1 = ',value1)
-        print('Value 2 = ',value2)
-        
-        if value1 and value2:
-            isPut = True
-            response = jsonify(
-                {
-                'value1': value1,
-                'value2': value2,
-                'sum = ': value1+value2
-                }
-            )
-            return response
-        else:
-            response = jsonify(
-                {
-                'Message': 'Failed'
-                }
-            )
-            return response
+    value1 = request.args.get('val1')
+    value2 = request.args.get('val2')
+    if value1 and value2:
+
+        print('multiplication = ', int(value1)*int(value2))
+        return jsonify({
+            'multiplication': int(value1)*int(value2)
+        })
     else:
-        value1 = request.args.get('val1')
-        value2 = request.args.get('val2')
-        if value1 and value2:
+        return jsonify({
+            'Message': 'No Data'
+        })
+@app.route("/home/problem", methods = ['GET'])
+def ProblemPage():
+    x = request.args.keys()
+    print(x)
+    arr = []
+    for i in x:
+        arr.append(i)
+    if arr[0] == 'P' and arr[1] == 'V':
+        return jsonify({
+            'result': Archimedes1()
+        })
+    elif arr[0] == 'F' and arr[1] == 'V':
+        return jsonify({
+            'result': Archimedes2()
+        })
+    elif  arr[0] == 'P' and arr[1] == 'F':
+        return jsonify({
+            'result': Archimedes3()
+        })
+    return jsonify({
+            'Message': 'No Data'
+        })
 
-            print('multiplication = ', int(value1)*int(value2))
-            return jsonify({
-                'multiplication': int(value1)*int(value2)
-            })
-        else:
-            return jsonify({
-                'Message': 'No Data'
-            })
-
+@app.route("/home/constants", methods=['GET'])
+def Consts():
+    result = []
+    cur = db.session.query(LiquidDensityConstant)
+    for i in cur:
+        name = i.name
+        value = i.value
+        result.append(name+' '+str(value))
+    print(result)
+    return jsonify({
+        'result': result 
+    })
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
