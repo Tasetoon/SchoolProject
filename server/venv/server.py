@@ -2,7 +2,8 @@ from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
-from functions import Archimedes1, Archimedes2, Archimedes3
+from functions import Archimedes_F, Archimedes_P, Archimedes_V
+from functions import EPosential_E, EPosential_H, EPosential_M
 
 # app instance
 db = SQLAlchemy()
@@ -73,26 +74,44 @@ def ProblemPage():
 #--------------------------------------------ARCHIMEDES-------------------------------------------------------
     if arr[0] == 'P' and arr[1] == 'V':
         return jsonify({
-            'result': Archimedes1()
+            'result': Archimedes_F()
         })
     elif arr[0] == 'F' and arr[1] == 'V':
         return jsonify({
-            'result': Archimedes2()
+            'result': Archimedes_P()
         })
     elif  arr[0] == 'P' and arr[1] == 'F':
         return jsonify({
-            'result': Archimedes3()
+            'result': Archimedes_V()
         })
 # --------------------------------------------MOMENTS-----------------------------------------------------------------
     elif arr[0] == 'F1' and arr[1] == 'L1' and arr[2] == 'F2':
         return jsonify({
             
         })
+    
+#--------------------------------------------E_POTENTIAL--------------------------------------------------------
+    elif  arr[0] == 'M' and arr[1] == 'H':
+        return jsonify({
+            'result': EPosential_E()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'H':
+        return jsonify({
+            'result': EPosential_M()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'M':
+        return jsonify({
+            'result': EPosential_H()
+        })
+    
     return jsonify({
             'Message': 'No Data'
         })
+#-------------------------------------------------------------------------------------------------------------
+#--------------------------------------------CONSTANTS--------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------
 
-#--------------------------------------------CONSTANTS---------------------------------------------------------
+
 @app.route("/home/constants", methods=['GET'])
 def Consts():
     type = request.args.get('type')
