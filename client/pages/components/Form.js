@@ -1,13 +1,14 @@
-
+"use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function CreateForm(props){
 const router = useRouter()
-
+    const [style, setStyle ] = useState("mb-2 text-lg font-medium text-white hidden")
     const [object, setObject ] = useState('')
     const [object2, setObject2] = useState('')
     const [answer, setAnswer] = useState("Answer...");
+    console.log(props)
     console.log(props.p1[0], props.p2[0], props.answer)
     useEffect(() => {
         router.push(
@@ -35,11 +36,14 @@ const router = useRouter()
         e.preventDefault()
         fetchData()
     }
+    const handleClickAnswer = async (e) => {
+        setStyle("mb-2 text-lg font-medium text-white flex")
+      }
     return (
-        <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
+        <form onSubmit={handleSubmit} className="mx-auto">
             <div className="mb-5">
-                <label className="block mb-2 text-sm font-medium text-white">{props.p1[1]}</label>
-                <input className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <label className=" mb-2 text-sm font-medium text-white">{props.p1[1]}</label>
+                <input className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name = 'value1'
                         required
                         type="number"
@@ -49,8 +53,8 @@ const router = useRouter()
             </div>
 
             <div className="mb-5">
-                <label className="block mb-2 text-sm font-medium text-white">{props.p2[1]}</label>
-                    <input className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <label className=" mb-2 text-sm font-medium text-white">{props.p2[1]}</label>
+                    <input className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         name = 'value2'
                         required
                         type="number"
@@ -58,15 +62,14 @@ const router = useRouter()
                         value = {object2}
                     />
             </div>
-            <button type="submit" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Посмотреть ответ</button>
+            <button type="submit" onClick={handleClickAnswer} className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Посмотреть ответ</button>
 
-            <div className="mb-5 visible" id="answerblock">
+            <div className="mb-5 mt-5" id="answer">
                 
-                <label className="block mb-2 text-sm font-medium text-white">{props.answer}</label>
-                    <div className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        {answer}
-                    </div>
+                <label className={style}>Ответ: {props.answer[0]} = {answer} {props.answer[1]}</label>
+
             </div>
+            
         </form>
     )
 }

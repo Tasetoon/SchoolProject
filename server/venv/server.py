@@ -24,6 +24,12 @@ class LiquidDensityConstant(db.Model):
     name = db.Column(db.Text)
     value = db.Column(db.Integer)
 
+class BodyDensityConstant(db.Model):  
+    __tablename__ = 'BodyDensityConstants'
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.Text)
+    value = db.Column(db.Integer)
+    
 @app.route("/home", methods = ['GET'])
 def home_page():
     return jsonify({
@@ -64,6 +70,7 @@ def ProblemPage():
     arr = []
     for i in x:
         arr.append(i)
+#--------------------------------------------ARCHIMEDES-------------------------------------------------------
     if arr[0] == 'P' and arr[1] == 'V':
         return jsonify({
             'result': Archimedes1()
@@ -76,21 +83,41 @@ def ProblemPage():
         return jsonify({
             'result': Archimedes3()
         })
+# --------------------------------------------MOMENTS-----------------------------------------------------------------
+    elif arr[0] == 'F1' and arr[1] == 'L1' and arr[2] == 'F2':
+        return jsonify({
+            
+        })
     return jsonify({
             'Message': 'No Data'
         })
 
+#--------------------------------------------CONSTANTS---------------------------------------------------------
 @app.route("/home/constants", methods=['GET'])
 def Consts():
-    result = []
-    cur = db.session.query(LiquidDensityConstant)
-    for i in cur:
-        name = i.name
-        value = i.value
-        result.append(name+' '+str(value))
-    print(result)
-    return jsonify({
-        'result': result 
-    })
+    type = request.args.get('type')
+    if type == 'liquids_density':
+        result = []
+        cur = db.session.query(LiquidDensityConstant)
+        for i in cur:
+            name = i.name
+            value = i.value
+            result.append(name+' '+str(value))
+        print(result)
+        return jsonify({
+            'result': result 
+        })
+    elif type == 'bodies_density':
+        result = []
+        cur = db.session.query(BodyDensityConstant)
+        for i in cur:
+            name = i.name
+            value = i.value
+            result.append(name+' '+str(value))
+        print(result)
+        return jsonify({
+            'result': result 
+        })
+
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
