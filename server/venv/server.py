@@ -2,8 +2,9 @@ from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 
-from functions import Archimedes1, Archimedes2, Archimedes3
-
+from functions import Archimedes_F, Archimedes_P, Archimedes_V
+from functions import EPosential_E, EPosential_H, EPosential_M
+from functions import EKinetic_E, EKinetic_M, EKinetic_V
 # app instance
 db = SQLAlchemy()
 
@@ -73,26 +74,60 @@ def ProblemPage():
 #--------------------------------------------ARCHIMEDES-------------------------------------------------------
     if arr[0] == 'P' and arr[1] == 'V':
         return jsonify({
-            'result': Archimedes1()
+            'result': Archimedes_F()
         })
     elif arr[0] == 'F' and arr[1] == 'V':
         return jsonify({
-            'result': Archimedes2()
+            'result': Archimedes_P()
         })
     elif  arr[0] == 'P' and arr[1] == 'F':
         return jsonify({
-            'result': Archimedes3()
+            'result': Archimedes_V()
         })
 # --------------------------------------------MOMENTS-----------------------------------------------------------------
     elif arr[0] == 'F1' and arr[1] == 'L1' and arr[2] == 'F2':
         return jsonify({
             
         })
-    return jsonify({
-            'Message': 'No Data'
+    
+#--------------------------------------------E_POTENTIAL--------------------------------------------------------
+    elif  arr[0] == 'M' and arr[1] == 'H':
+        return jsonify({
+            'result': EPosential_E()
         })
+    elif  arr[0] == 'E' and arr[1] == 'H':
+        return jsonify({
+            'result': EPosential_M()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'M':
+        return jsonify({
+            'result': EPosential_H()
+        })
+    
 
-#--------------------------------------------CONSTANTS---------------------------------------------------------
+
+#--------------------------------------------E_KINETIC--------------------------------------------------------
+    elif  arr[0] == 'M' and arr[1] == 'V':
+        return jsonify({
+            'result': EKinetic_E()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'M':
+        return jsonify({
+            'result': EKinetic_V()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'V':
+        return jsonify({
+            'result': EKinetic_M()
+        })
+    return jsonify({
+        'Message': 'No Data'
+    })
+
+#-------------------------------------------------------------------------------------------------------------
+#--------------------------------------------CONSTANTS--------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------
+
+
 @app.route("/home/constants", methods=['GET'])
 def Consts():
     type = request.args.get('type')
