@@ -63,3 +63,48 @@ def EPosential_H():
         return result
     else:
         return 'No Data'
+    
+def EKinetic_E():
+    M = request.args.get('M')
+    V = request.args.get('V')
+    if M and V:
+        V = float(V)
+        M = float(M)
+        result = round((M*V**2)/2,2)
+        return result
+    else:
+        return 'No Data'
+    
+def EKinetic_M():
+    E = request.args.get('E')
+    V = request.args.get('V')
+    if E and V:
+        V = float(V)
+        E = float(E)
+        result = round((E*2)/V**2,2)
+        return result
+    else:
+        return 'No Data'
+    
+def EKinetic_V():
+    E = request.args.get('E')
+    M = request.args.get('M')
+    if E and M:
+        M = float(M)
+        E = float(E)
+        result = round(((E*2)/M)**0.5,2)
+        return result
+    else:
+        return 'No Data'
+    
+def Moments():
+    M = request.args.get('E')
+    M = request.args.get('M')
+
+    if E and M:
+        M = float(M)
+        E = float(E)
+        result = round(((E*2)/M)**0.5,2)
+        return result
+    else:
+        return 'No Data'

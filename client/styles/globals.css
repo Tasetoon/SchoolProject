@@ -38,3 +38,10 @@
   .special{
     display: block;
   }
+
+  .mypng{
+    max-width: 25%;
+  }
+  .mypng2{
+    max-width: 50%;
+  }

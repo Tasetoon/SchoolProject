@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 from functions import Archimedes_F, Archimedes_P, Archimedes_V
 from functions import EPosential_E, EPosential_H, EPosential_M
-
+from functions import EKinetic_E, EKinetic_M, EKinetic_V
 # app instance
 db = SQLAlchemy()
 
@@ -104,9 +104,25 @@ def ProblemPage():
             'result': EPosential_H()
         })
     
-    return jsonify({
-            'Message': 'No Data'
+
+
+#--------------------------------------------E_KINETIC--------------------------------------------------------
+    elif  arr[0] == 'M' and arr[1] == 'V':
+        return jsonify({
+            'result': EKinetic_E()
         })
+    elif  arr[0] == 'E' and arr[1] == 'M':
+        return jsonify({
+            'result': EKinetic_V()
+        })
+    elif  arr[0] == 'E' and arr[1] == 'V':
+        return jsonify({
+            'result': EKinetic_M()
+        })
+    return jsonify({
+        'Message': 'No Data'
+    })
+
 #-------------------------------------------------------------------------------------------------------------
 #--------------------------------------------CONSTANTS--------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------------

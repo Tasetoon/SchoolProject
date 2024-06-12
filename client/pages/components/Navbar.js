@@ -22,12 +22,17 @@ export default function Navbar(){
     </div>
     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
+        <li className="flex">
+          <a href="/7th_grade" className="block py-2  mr-2 px-5  rounded md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">7 класс</a>
+          <a href="/8th_grade" className="block py-2 px-5  rounded md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">8 класс</a>
+        </li>
         <li>
           <a href="/" className="block py-2 px-3  rounded md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">На главную</a>
         </li>
         <li>
           <a href="/About" className="block py-2 px-3  rounded md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">О нас</a>
         </li>
+        
       </ul>
     </div>
   </div>
