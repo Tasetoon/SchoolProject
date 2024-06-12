@@ -18,7 +18,7 @@ function index() {
     setParam1(['M', 'M(масса)кг'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['E(потенциальная энергия)', 'Дж'])
-    setStyle("")
+    setStyle("mt-10")
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=a8d967ec-258f-4be1-9a80-9d37ca3f6508.png')
   }
   const handleClickMass = async (e) => {
@@ -26,7 +26,7 @@ function index() {
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['M(масса)', 'кг'])
-    setStyle("")
+    setStyle("mt-10")
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=4d2ae885-6e49-4d7b-b264-6f8b735e7c8e.png')
   }
   const handleClickHeight = async (e) => {
@@ -34,7 +34,7 @@ function index() {
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['M', 'M(масса)кг'])
     setAnswer(['H(высота)', 'м'])
-    setStyle("")
+    setStyle("mt-10")
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=4ce96643-afcd-4eb0-82c7-7c39d5c331c1.png')
   }
   return (

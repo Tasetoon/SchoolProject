@@ -5,7 +5,7 @@ import Form from '../components/Form';
 import mygif from '../../public/gifs/EKinetic.gif';
 
 function index() {
-  const [style, setStyle ] = useState("mt-4 hidden");
+  const [style, setStyle ] = useState("hidden");
   const [pr1, setParam1 ] = useState('');
   const [pr2, setParam2 ] = useState('');
   const [answer, setAnswer ] = useState('');
@@ -17,7 +17,7 @@ function index() {
     setParam1(['M', 'M(масса)кг'])
     setParam2(['V', 'V(скорость)м/c'])
     setAnswer(['E(кинетическая энергия)', 'Дж'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=caec7865-77f0-4087-8e4e-326dfed6d935.png')
 
   }
@@ -26,7 +26,7 @@ function index() {
     setParam1(['E', 'E(кинетическая энергия)Дж'])
     setParam2(['V', 'V(скорость)м/c'])
     setAnswer(['M(масса)', 'кг'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=f8c22398-ff05-44ab-8599-071b5e7ca2f2.png')
   }
   const handleClickVelocity = async (e) => {
@@ -34,7 +34,7 @@ function index() {
     setParam1(['E', 'E(кинетическая энергия)Дж'])
     setParam2(['M', 'M(масса)кг'])
     setAnswer(['V(скорость)', 'м/с'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=a0e1087e-180f-4a23-99a4-b822875fc6ab.png')
   }
   return (
