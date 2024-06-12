@@ -19,7 +19,7 @@ function index() {
     setParam1(['P', 'P(плотность)кг/м3'])
     setParam2(['V', 'V(объем)м3'])
     setAnswer(['F(сила Архимеда)', 'H'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=94535c4c-05a3-4f30-8ec3-edd92673216f.png')
   }
   const handleClickLiquid = async (e) => {
@@ -27,7 +27,7 @@ function index() {
     setParam1(['F', 'F(сила Архимеда)H'])
     setParam2(['V', 'V(объем)м3'])
     setAnswer(['P(плотность)', 'кг/м3'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=262e3c2f-9b7f-46d4-8ffd-d2101c5c24fb.png')
 
   }
@@ -36,7 +36,7 @@ function index() {
     setParam1(['P', 'P(плотность)кг/м3'])
     setParam2(['F', 'F(сила Архимеда)H'])
     setAnswer(['V(объем)', 'м3'])
-    setStyle('')
+    setStyle('mt-10')
     setFormule_url('https://api.products.aspose.app/tex/api/files?uri=82bcb397-d2cd-4941-95e3-7d9fd8add1cf.png')
   }
   return (
