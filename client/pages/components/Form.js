@@ -37,7 +37,7 @@ const router = useRouter()
         fetchData()
     }
     const handleClickAnswer = async (e) => {
-        if(object !== '' && object2 !== ''){
+        if(object !== '' && object > 0 && object2 !== '' && object2 > 0){
             setStyle("flex flex-col justify-around")
         }
       }
@@ -53,6 +53,8 @@ const router = useRouter()
                         name = 'value1'
                         required
                         type="number"
+                        min='0'
+                        step="0.1"
                         onChange={(e) => setObject(e.target.value)}
                         value = {object}
                     />
@@ -64,6 +66,8 @@ const router = useRouter()
                         name = 'value2'
                         required
                         type="number"
+                        min='0'
+                        step="0.1"
                         onChange={(e) => setObject2(e.target.value)}
                         value = {object2}
                     />
