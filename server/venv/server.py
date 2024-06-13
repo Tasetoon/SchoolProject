@@ -1,12 +1,10 @@
 from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
-from flask_sqlalchemy import SQLAlchemy
+from init_database import init_database
 
 from functions import Archimedes_F, Archimedes_P, Archimedes_V
 from functions import EPosential_E, EPosential_H, EPosential_M
 from functions import EKinetic_E, EKinetic_M, EKinetic_V
-# app instance
-db = SQLAlchemy()
 
 app = Flask(__name__)
 CORS(app)
@@ -15,21 +13,6 @@ cors = CORS(app, resource={
         "origins":"*"
     }
 })
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost/postgres'
-db = SQLAlchemy(app)
-
-class LiquidDensityConstant(db.Model):  
-    __tablename__ = 'LiquidDensityConstants'
-    id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.Text)
-    value = db.Column(db.Integer)
-
-class BodyDensityConstant(db.Model):  
-    __tablename__ = 'BodyDensityConstants'
-    id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.Text)
-    value = db.Column(db.Integer)
     
 @app.route("/home", methods = ['GET'])
 def home_page():
@@ -40,14 +23,18 @@ def home_page():
 
 @app.route("/home/test", methods = ['GET'])
 def page():
-    cur = db.session.query(LiquidDensityConstant).filter(LiquidDensityConstant.id==1)
-    for i in cur:
-        name = i.name
-        value = i.value
-    print(name, value)
+    result = []
+    connection = init_database()
+    cur =  connection.cursor()
+    cur.execute("SELECT name, value FROM bodyDensityConstants")
+    data = cur.fetchall()
+    for tmp in data:
+        name = tmp[0]
+        value = tmp[1]
+        result.append(name+' '+str(value))
+    print(result)
     return jsonify({
-        'name': name,
-        'value': value
+        'result': result 
     })
 
 @app.route("/home/form", methods = ['GET'])
@@ -133,10 +120,13 @@ def Consts():
     type = request.args.get('type')
     if type == 'liquids_density':
         result = []
-        cur = db.session.query(LiquidDensityConstant)
-        for i in cur:
-            name = i.name
-            value = i.value
+        connection = init_database()
+        cur =  connection.cursor()
+        cur.execute("SELECT name, value FROM LiquidDensityConstants")
+        data = cur.fetchall()
+        for tmp in data:
+            name = tmp[0]
+            value = tmp[1]
             result.append(name+' '+str(value))
         print(result)
         return jsonify({
@@ -144,10 +134,13 @@ def Consts():
         })
     elif type == 'bodies_density':
         result = []
-        cur = db.session.query(BodyDensityConstant)
-        for i in cur:
-            name = i.name
-            value = i.value
+        connection = init_database()
+        cur =  connection.cursor()
+        cur.execute("SELECT name, value FROM BodyDensityConstants")
+        data = cur.fetchall()
+        for tmp in data:
+            name = tmp[0]
+            value = tmp[1]
             result.append(name+' '+str(value))
         print(result)
         return jsonify({
