@@ -9,7 +9,7 @@ export default function Footer(props){
 
  <footer className={style}>
     <div className="w-full mx-auto ">
-        <hr className="margin-top-bottom" />
+        <hr className={style} />
         <span className="block text text-center text-gray-400">© 2024 <a href="/About" className="hover:underline">Force Matters</a>. Все права соблюдены.</span>
     </div>
 </footer> 

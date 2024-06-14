@@ -10,10 +10,10 @@ function index() {
     <div>
       <Navbar/>
     </div>
-    <div className='mt-16'>
-      <h1 className="text-3xl text-center font-extrabold text-white">Здесь вы можете посмотреть плотность разных твердых тел</h1>
+    <div className='margin-top'>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">Здесь вы можете посмотреть плотность разных твердых тел</h1>
     </div>
-    <div className='mt-10 flex justify-center'>
+    <div className='margin-top1 flex justify-center'>
         <Dropdown
             type = {'bodies_density'}
         />

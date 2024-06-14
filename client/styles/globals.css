@@ -49,9 +49,26 @@
   .max-w-screen{
     max-width: 4000px;
   }
-
+  .margin{
+    margin: 4vh;
+  }
+  .margin-top1{
+    margin-top: 2.5vh;
+  }
   .margin-top{
     margin-top: 5vh;
+  }
+  .margin-top2{
+    margin-top: 10vh;
+  }
+  .margin-bottom{
+    margin-bottom: 1.5vh;
+  }
+  .margin-bottom-small{
+    margin-bottom: 0.5vh;
+  }
+  .margin-left{
+    margin-left: 1.5vh;
   }
   .padding-top{
     padding-top: 5vh;
@@ -77,6 +94,9 @@
   .logo-text{
     font-size: 5vh;
   }
+  .subtitle{
+    font-size: 4vh;
+  }
   .margin-top-bottom{
     margin-bottom: 1.5em;
     margin-top: 1.5em;
@@ -84,4 +104,26 @@
 
   .image{
     height: 10vh;
+  }
+
+  .photo{
+    height: 30vh;
+    padding: 0.7vh;
+  }
+  .margin-left{
+    margin-left: 2vh;
+  }
+  .width{
+    width: 45vh;
+  }
+
+  .li-el{
+    padding-left: 1vh;
+    padding-right: 1vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+  }
+  .input{
+    border-radius: 1vh;
+    border-width: 0.2vh;
   }

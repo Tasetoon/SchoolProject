@@ -9,9 +9,9 @@ function index() {
     <div>
       <Navbar/>
     </div>
-    <div className='mt-16'>
-      <h1 className="text-5xl text-center font-extrabold text-white">8 класс</h1>
-      <h1 className="text-5xl text-center font-extrabold text-white mt-10">В разработке...</h1>
+    <div className='margin-top'>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">8 класс</h1>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">В разработке...</h1>
 
     </div>
 

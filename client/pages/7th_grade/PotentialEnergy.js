@@ -18,24 +18,24 @@ function index() {
     setParam1(['M', 'M(масса)кг'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['E(потенциальная энергия)', 'Дж'])
-    setStyle("mt-10")
-    setFormule_url('https://api.products.aspose.app/tex/api/files?uri=a8d967ec-258f-4be1-9a80-9d37ca3f6508.png')
+    setStyle("margin-top1")
+    setFormule_url('https://i.ibb.co/3yxzr0X/EPotential-Energy.png')
   }
   const handleClickMass = async (e) => {
     e.preventDefault()
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['M(масса)', 'кг'])
-    setStyle("mt-10")
-    setFormule_url('https://api.products.aspose.app/tex/api/files?uri=4d2ae885-6e49-4d7b-b264-6f8b735e7c8e.png')
+    setStyle("margin-top1")
+    setFormule_url('https://i.ibb.co/GHN6bvX/EPotential-mass.png')
   }
   const handleClickHeight = async (e) => {
     e.preventDefault()
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['M', 'M(масса)кг'])
     setAnswer(['H(высота)', 'м'])
-    setStyle("mt-10")
-    setFormule_url('https://api.products.aspose.app/tex/api/files?uri=4ce96643-afcd-4eb0-82c7-7c39d5c331c1.png')
+    setStyle("margin-top1")
+    setFormule_url('https://i.ibb.co/qC06DTP/EPotential-height.png')
   }
   return (
   
@@ -43,15 +43,15 @@ function index() {
     <div>
       <Navbar/>
     </div>
-    <div className='mt-16'>
-      <h1 className="text-5xl text-center font-extrabold text-white pt-8">Потенциальная энергия</h1>
+    <div className='margin-top'>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">Потенциальная энергия</h1>
     </div>
     <div className='grid grid-cols-2 gap-4 h-1/3 bg-slate-700 m-16'>
       <div className='flex flex-col justify-center'>
-        <p class="mb-5 text-lg text-white md:text-xl">Потенциальной энергия — энергия, определяемая относительным расположением тел или частей тела.</p>
-        <p class="text-white">Потенциальная энергия — скалярная физическая величина, представляющая собой часть полной механической энергии системы, находящейся в поле консервативных сил</p>
+        <p class="margin-bottom text text-white">Потенциальной энергия — энергия, определяемая относительным расположением тел или частей тела.</p>
+        <p class="text-white text">Потенциальная энергия — скалярная физическая величина, представляющая собой часть полной механической энергии системы, находящейся в поле консервативных сил</p>
         <div className='flex justify-center mt-10'>
-          <img src='https://api.products.aspose.app/tex/api/files?uri=a8d967ec-258f-4be1-9a80-9d37ca3f6508.png' alt='img' className='mypng2'/>
+          <img src='https://i.ibb.co/3yxzr0X/EPotential-Energy.png' alt='img' className='mypng2'/>
         </div>
       </div>
       <div className=' flex justify-end'>
@@ -59,17 +59,17 @@ function index() {
       </div>
     </div>
     <div className='mt-24'>
-      <h1 className="text-5xl text-center font-extrabold text-white">Что надо найти?</h1>
+      <h1 className="logo-text text-center font-extrabold text-white">Что надо найти?</h1>
     </div>
     <div className="grid grid-cols-3 gap-4 mt-10 justify-center">
         <div className='flex justify-center'>
-            <a href='#' onClick={handleClickEnergy}  type="button" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Потенциальную енергию</a>
+            <a href='#' onClick={handleClickEnergy}  type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium text-center mb-2 button">Потенциальную енергию</a>
         </div>
         <div className='flex justify-center'>
-            <a href='#' onClick={handleClickMass} type="button" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Массу тела</a>
+            <a href='#' onClick={handleClickMass} type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium text-center mb-2 button">Массу тела</a>
         </div>
         <div className='flex justify-center'>
-            <a href='#' onClick={handleClickHeight} type="button" className=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Высоту</a>
+            <a href='#' onClick={handleClickHeight} type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium text-center mb-2 button">Высоту</a>
         </div>
     </div>
     <div className={style}>
@@ -82,7 +82,7 @@ function index() {
     </div>
     <div>
       <Footer
-        flag = {"+"}
+        flag = {'+'}
       />
     </div>
   </div>

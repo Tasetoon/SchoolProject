@@ -25,9 +25,9 @@ export default function Dropdown(props){
     console.log(data)
     return (
     <div>
-        <ul className="w-48 text-sm font-medium rounded-lg bg-gray-700 border-gray-900 text-white">
+        <ul className="width text font-medium rounded-lg bg-gray-700 border-gray-900 text-white">
             {data.map((x) => (
-                <li className="w-full px-4 py-2 border-b border-gray-900">{x}(кг/м3)</li>
+                <li className="w-full li-el border-b border-gray-900">{x}(кг/м3)</li>
             ))}
         </ul>
     </div>   

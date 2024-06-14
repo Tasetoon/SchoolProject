@@ -10,9 +10,9 @@ function index() {
     <div>
       <Navbar/>
     </div>
-    <div className='mt-16'>
-      <h1 className="text-3xl text-center font-extrabold text-white">Здесь вы можете посмотреть удельную теплоемкость разных тел</h1>
-      <h1 className="text-3xl text-center font-extrabold text-white mt-20">В разработке...</h1>
+    <div className='margin-top'>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">Здесь вы можете посмотреть удельную теплоемкость разных тел</h1>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">В разработке...</h1>
     </div>
     <div>
       <Footer/>

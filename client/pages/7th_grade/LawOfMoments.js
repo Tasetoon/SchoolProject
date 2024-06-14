@@ -16,21 +16,21 @@ function index() {
     setParam1(['M', 'M(масса)кг'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['E(потенциальная энергия)', 'Дж'])
-    setStyle("mt-4 flex")
+    setStyle("margin-top1")
   }
   const handleClickMass = async (e) => {
     e.preventDefault()
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['H', 'H(высота)м'])
     setAnswer(['M(масса)', 'кг'])
-    setStyle("mt-4 flex")
+    setStyle("margin-top1")
   }
   const handleClickHeight = async (e) => {
     e.preventDefault()
     setParam1(['E', 'E(потенциальная энергия)Дж'])
     setParam2(['M', 'M(масса)кг'])
     setAnswer(['H(высота)', 'м'])
-    setStyle("mt-4 flex")
+    setStyle("margin-top1")
   }
   return (
   
@@ -38,14 +38,14 @@ function index() {
     <div>
       <Navbar/>
     </div>
-    <div className='mt-16'>
-      <h1 className="text-5xl text-center font-extrabold text-white pt-8">Правило моментов</h1>
+    <div className='margin-top'>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">Правило моментов</h1>
     </div>
     <div className='grid grid-cols-2 gap-4 h-1/3 bg-slate-700 m-16'>
       <div className='flex flex-col justify-center'>
-        <p class="mb-5 text-lg text-white md:text-xl pr-3">Правило моментов говорит о том, что если рычаг не вращается, то сумма моментов сил, поворачивающих рычаг против часовой стрелки, равна сумме моментов сил, поворачивающих рычаг по часовой стрелке. Это условие выполняется относительно любой точки.</p>
+        <p class="margin-bottom text text-white">Правило моментов говорит о том, что если рычаг не вращается, то сумма моментов сил, поворачивающих рычаг против часовой стрелки, равна сумме моментов сил, поворачивающих рычаг по часовой стрелке. Это условие выполняется относительно любой точки.</p>
         <div className='flex justify-center mt-10'>
-          <img src='https://api.products.aspose.app/tex/api/files?uri=666a8b38-0f7a-465d-8ce3-d04520c77352.png' alt='img' className='mypng2'/>
+          <img src='https://i.ibb.co/9pQRWcY/Law-of-moments.png' alt='img' className='mypng2'/>
         </div>
       </div>
       <div className=' flex justify-end'>
@@ -53,7 +53,7 @@ function index() {
       </div>
     </div>
     <div className='mt-24'>
-      <h1 className="text-5xl text-center font-extrabold text-white">В разработке...</h1>
+      <h1 className="text-center font-extrabold text-white padding-top label-font">В разработке...</h1>
     </div>
     {/*<div className="grid grid-cols-3 gap-4 mt-10 justify-center">
         <div className='flex justify-center'>
@@ -74,9 +74,7 @@ function index() {
         />
     </div> */}
     <div>
-      <Footer
-        flag = {"+"}
-      />
+      <Footer/>
     </div>
   </div>
   )
